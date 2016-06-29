@@ -10,14 +10,14 @@ export default class TimeRanges {
   }
 
   start (i) {
-    if (typeof i !== 'number' || isNaN(i) || i < 0 || i >= this._ranges.length) {
+    if (!this._isValidIndex(i)) {
       throw new Error('Invalid index')
     }
     return this._ranges[i].start
   }
 
   end (i) {
-    if (typeof i !== 'number' || isNaN(i) || i < 0 || i >= this._ranges.length) {
+    if (!this._isValidIndex(i)) {
       throw new Error('Invalid index')
     }
     return this._ranges[i].end
@@ -49,5 +49,9 @@ export default class TimeRanges {
       index: i,
       contained: (i < this._ranges.length && value >= this._ranges[i].start)
     }
+  }
+
+  _isValidIndex (i) {
+    return (typeof i === 'number' && !isNaN(i) && i >= 0 && i < this._ranges.length)
   }
 }
