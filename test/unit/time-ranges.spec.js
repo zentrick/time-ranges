@@ -39,6 +39,12 @@ describe('TimeRanges', function () {
         }).to.throw(Error)
       })
 
+      it('throws if index is undefined', function () {
+        expect(() => {
+          tr[fn](void 0)
+        }).to.throw(Error)
+      })
+
       it('throws for negative numbers', function () {
         expect(() => {
           tr[fn](-1)
@@ -66,9 +72,21 @@ describe('TimeRanges', function () {
       }).to.throw(Error)
     })
 
+    it('throws if start is undefined', function () {
+      expect(function () {
+        add(void 0, 1)
+      }).to.throw(Error)
+    })
+
     it('throws if end is not a number', function () {
       expect(function () {
         add(1, NaN)
+      }).to.throw(Error)
+    })
+
+    it('throws if end is undefined', function () {
+      expect(function () {
+        add(1, void 0)
       }).to.throw(Error)
     })
 
