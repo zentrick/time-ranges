@@ -11,8 +11,12 @@ const findRange = function (value) {
   }
 }
 
+const isNumber = function (num) {
+  return (typeof num === 'number' && !isNaN(num))
+}
+
 const isValidIndex = function (i) {
-  return (typeof i === 'number' && !isNaN(i) && i >= 0 && i < this._ranges.length)
+  return (isNumber(i) && i >= 0 && i < this._ranges.length)
 }
 
 export default class TimeRanges {
@@ -39,8 +43,7 @@ export default class TimeRanges {
   }
 
   add (start, end) {
-    if (typeof start !== 'number' || typeof end !== 'number' ||
-        isNaN(start) || isNaN(end) || end < start) {
+    if (!isNumber(start) || !isNumber(end) || end < start) {
       throw new Error('Invalid range')
     }
     const s = findRange.call(this, start)
