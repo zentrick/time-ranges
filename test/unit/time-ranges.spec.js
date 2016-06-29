@@ -154,6 +154,16 @@ describe('TimeRanges', function () {
       verify([1, 6])
     })
 
+    it('merges multiple (alt)', function () {
+      add(2, 4)
+      add(6, 8)
+      add(10, 12)
+      add(14, 16)
+      add(18, 20)
+      add(11, 17)
+      verify([2, 4], [6, 8], [10, 17], [18, 20])
+    })
+
     it('extends at start and end', function () {
       add(1, 2)
       add(3, 4)
