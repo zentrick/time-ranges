@@ -1,7 +1,6 @@
 import TimeRange from './time-range'
 
-const findRange = function (value) {
-  let i = 0
+const findRange = function (value, i = 0) {
   while (i < this._ranges.length && value > this._ranges[i].end) {
     ++i
   }
@@ -47,7 +46,7 @@ export default class TimeRanges {
       throw new Error('Invalid range')
     }
     const s = findRange.call(this, start)
-    const e = findRange.call(this, end)
+    const e = findRange.call(this, end, s.index)
     if (s.contained) {
       start = Math.min(start, this._ranges[s.index].start)
     }
