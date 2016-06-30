@@ -20,6 +20,23 @@ describe('TimeRanges', function () {
     expect(actual).to.equal(expected)
   }
 
+  describe('#constructor()', function () {
+    it('creates empty', function () {
+      expect(tr.length).to.equal(0)
+    })
+
+    it('copies', function () {
+      const ranges = [[1, 2], [3, 4]]
+      const dummy = {
+        length: ranges.length,
+        start: (i) => ranges[i][0],
+        end: (i) => ranges[i][1]
+      }
+      tr = new TimeRanges(dummy)
+      verify(...ranges)
+    })
+  })
+
   describe('#length', function () {
     it('is 0 by default', function () {
       expect(tr.length).to.equal(0)

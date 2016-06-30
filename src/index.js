@@ -1,5 +1,11 @@
 import TimeRange from './time-range'
 
+const merge = function (other) {
+  for (let i = 0; i < other.length; ++i) {
+    this.add(other.start(i), other.end(i))
+  }
+}
+
 const findRange = function (value, i = 0) {
   while (i < this._ranges.length && value > this._ranges[i].end) {
     ++i
@@ -19,8 +25,11 @@ const isValidIndex = function (i) {
 }
 
 export default class TimeRanges {
-  constructor () {
+  constructor (other = null) {
     this._ranges = []
+    if (other != null) {
+      merge.call(this, other)
+    }
   }
 
   get length () {
