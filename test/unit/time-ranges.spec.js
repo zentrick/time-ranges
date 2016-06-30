@@ -164,6 +164,22 @@ describe('TimeRanges', function () {
       verify([2, 4], [6, 8], [10, 17], [18, 20])
     })
 
+    it('bridges gaps', function () {
+      add(1, 2)
+      add(3, 4)
+      add(2, 3)
+      verify([1, 4])
+    })
+
+    it('bridges gaps and merges', function () {
+      add(1, 2)
+      add(3, 4)
+      add(5, 6)
+      add(8, 9)
+      add(2, 7)
+      verify([1, 7], [8, 9])
+    })
+
     it('extends at start and end', function () {
       add(1, 2)
       add(3, 4)
