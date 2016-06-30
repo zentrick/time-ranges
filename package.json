@@ -5,6 +5,9 @@
   "main": "index.js",
   "jsnext:main": "src/index.js",
   "author": "Zentrick nv (https://www.zentrick.com/)",
+  "contributors": [
+    "Tim De Pauw <tim.depauw@zentrick.com>"
+  ],
   "engines": {
     "node": ">=0.12.0"
   },

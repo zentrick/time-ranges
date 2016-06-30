@@ -4,6 +4,10 @@
 
 Standalone implementation of the HTML5 Media `TimeRanges` interface. Always normalized.
 
+## Maintainer
+
+[Tim De Pauw](https://tmdpw.eu/)
+
 ## License
 
 MIT
