@@ -17,7 +17,7 @@ describe('TimeRanges', function () {
   const verify = (...ranges) => {
     const expected = serialize(ranges.map(([start, end]) => new TimeRange(start, end)))
     const actual = serialize(tr._ranges)
-    expect(actual).to.eql(expected)
+    expect(actual).to.equal(expected)
   }
 
   describe('#length', function () {
