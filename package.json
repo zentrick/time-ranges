@@ -43,7 +43,7 @@
     "in-publish": "^2.0.0",
     "isparta": "^4.0.0",
     "run-sequence": "^1.2.1",
-    "yargs": "^5.0.0"
+    "yargs": "^6.3.0"
   },
   "standard": {
     "parser": "babel-eslint",
