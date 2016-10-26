@@ -27,7 +27,7 @@
   "bugs": "https://github.com/zentrick/time-ranges/issues",
   "dependencies": {},
   "devDependencies": {
-    "babel-eslint": "^6.1.0",
+    "babel-eslint": "^7.1.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-register": "^6.14.0",
     "chai": "^3.5.0",
