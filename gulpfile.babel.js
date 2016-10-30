@@ -6,6 +6,7 @@ import seq from 'run-sequence'
 import yargs from 'yargs'
 
 const COVERAGE_THRESHOLDS = {global: 90}
+const {CIRCLECI, CIRCLE_TEST_REPORTS, COVERALLS} = process.env
 
 const $ = loadPlugins()
 const argv = yargs
@@ -38,7 +39,10 @@ gulp.task('pre-coverage', () => {
 gulp.task('coverage', ['pre-coverage'], () => {
   return gulp.src(['test/lib/setup.js', 'test/{unit,integration}/**/*.js', '!**/_*.js'], {read: false})
     .pipe($.mocha({
-      reporter: 'spec',
+      reporter: CIRCLECI ? 'mocha-junit-reporter' : 'spec',
+      reporterOptions: CIRCLECI ? {
+        mochaFile: `${CIRCLE_TEST_REPORTS}/junit/test-results.xml`
+      } : {},
       grep: argv.grep,
       bail: argv.bail
     }))
@@ -47,7 +51,7 @@ gulp.task('coverage', ['pre-coverage'], () => {
 })
 
 gulp.task('coveralls', () => {
-  if (!process.env.COVERALLS) {
+  if (!COVERALLS) {
     return
   }
   return gulp.src('coverage/lcov.info')

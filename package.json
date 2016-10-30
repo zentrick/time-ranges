@@ -42,6 +42,7 @@
     "gulp-standard": "^7.0.1",
     "in-publish": "^2.0.0",
     "isparta": "^4.0.0",
+    "mocha-junit-reporter": "^1.12.1",
     "run-sequence": "^1.2.1",
     "yargs": "^5.0.0"
   },
@@ -58,6 +59,8 @@
     ]
   },
   "greenkeeper": {
-    "ignore": ["gulp-standard"]
+    "ignore": [
+      "gulp-standard"
+    ]
   }
 }
