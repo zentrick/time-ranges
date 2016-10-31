@@ -41,7 +41,7 @@ gulp.task('coverage', ['pre-coverage'], () => {
     .pipe($.mocha({
       reporter: CIRCLECI ? 'mocha-junit-reporter' : 'spec',
       reporterOptions: CIRCLECI ? {
-        mochaFile: `${CIRCLE_TEST_REPORTS}/junit/test-results.xml`
+        mochaFile: `${CIRCLE_TEST_REPORTS}/junit/test-results-${process.version}.xml`
       } : {},
       grep: argv.grep,
       bail: argv.bail
